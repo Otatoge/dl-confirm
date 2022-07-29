@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DL confirm</title>
+</head>
+
+<body>
+    <h1>Confirm before downloading</h1>
+    <p>
+        verify that the file is safe<br>
+        Click to start downloading the file
+    </p>
+    <h2>Let's use it</h2>
+    <p>Paste the URL to the file below</p>
+    <label>Direct link to a file: <input type="url" id="direct" value="https://"></label><br>
+    <span>
+        <a href="#" id="confirm">
+            I am the URL containing the confirmation: Copy the address of the link and share it!
+        </a>
+    </span>
+    <input type="button" value="copy" id="copy">
+    <script>
+        document.getElementById('direct').addEventListener('input', (event) => {
+            document.getElementById('confirm').href = `https://dl-confirm.herokuapp.com/l/${encodeURI(event.target.value)}`
+        });
+        document.getElementById('copy').addEventListener('click', async (event) => {
+            await navigator.clipboard.writeText(document.getElementById('confirm').href);
+            event.target.disabled = true
+            event.target.value = 'copied'
+            setTimeout(() => {
+                event.target.value = 'copy'
+                event.target.disabled = false
+            }, 500);
+        })
+    </script>
+</body>
+
+</html>
