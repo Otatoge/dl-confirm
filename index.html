@@ -25,7 +25,7 @@
     <input type="button" value="copy" id="copy">
     <script>
         document.getElementById('direct').addEventListener('input', (event) => {
-            document.getElementById('confirm').href = `https://dl-confirm.herokuapp.com/l/${encodeURI(event.target.value)}`
+            document.getElementById('confirm').href = `https://dl-confirm.herokuapp.com/${encodeURI(event.target.value)}`
         });
         document.getElementById('copy').addEventListener('click', async (event) => {
             await navigator.clipboard.writeText(document.getElementById('confirm').href);
