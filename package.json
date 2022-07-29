@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/Otatoge/dl-confirm/issues"
   },
-  "homepage": "https://github.com/Otatoge/dl-confirm#readme"
+  "homepage": "https://github.com/Otatoge/dl-confirm#readme",
+  "dependencies": {
+    "express": "^4.18.1"
+  }
 }
